@@ -5,7 +5,7 @@ const { href, class: className, ...props } = Astro.props;
 
 const pathname = Astro.url.pathname;
 
-const path = pathname.match("/^/$/") ? pathname : pathname.slice(0, -1);
+const path = pathname.match("/^\/$/") ? pathname : pathname.slice(0, -1);
 
 // let pathnameWithoutTrailingSlash = Astro.url.pathname.replace(/\/$/, "");
 
