@@ -3,13 +3,17 @@ export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
 
 const { href, class: className, ...props } = Astro.props;
 
-let pathnameWithoutTrailingSlash = Astro.url.pathname.replace(/\/$/, "");
+const pathname = Astro.url.pathname;
 
-if (href === "/" && pathnameWithoutTrailingSlash === "") {
-  pathnameWithoutTrailingSlash = "/";
-}
+const path = pathname.match("/^/$/") ? pathname : pathname.slice(0, -1);
 
-const isActive = href === pathnameWithoutTrailingSlash;
+// let pathnameWithoutTrailingSlash = Astro.url.pathname.replace(/\/$/, "");
+
+// if (href === "/" && pathnameWithoutTrailingSlash === "") {
+//   pathnameWithoutTrailingSlash = "/";
+// }
+
+const isActive = href === path;
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
