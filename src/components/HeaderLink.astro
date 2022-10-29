@@ -4,7 +4,7 @@ export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
 const { href, class: className, ...props } = Astro.props;
 // const result = pathname.match(/^\/$/) ? pathname : pathname.slice(0,-1);
 
-let pathname = Astro.url.pathname.match("/^/$/")
+let pathname = Astro.url.pathname.match("/A/z/")
   ? Astro.url.pathname
   : Astro.url.pathname.slice(0, -1);
 
